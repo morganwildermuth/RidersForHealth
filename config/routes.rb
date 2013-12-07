@@ -1,3 +1,3 @@
 ChimeforChange::Application.routes.draw do
-  root :to =>'index'
+  resources :villages, only: [:index]
 end
