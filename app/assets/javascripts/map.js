@@ -16,11 +16,13 @@ function createDatabaseVillages(villages, map){
   }
 }
 
-function villageHoverGetsInfo(map, marker){
+function villageHoverGetsInfo(map, marker, title){
   var latitude = marker.position.pb.toString();
   var longitude = marker.position.qb.toString();
+  var contentString = "<p>" + title + "</p>" +
+  "<p><a href=villages/new?latitude=" + latitude + "&longitude=" + longitude + ">Save/Edit Village</a></p>"
   var infoWindow = new google.maps.InfoWindow({
-    content: "<a href=villages/new?latitude=" + latitude + "&longitude=" + longitude + ">Edit</a>"
+    content: contentString
   });
 
   google.maps.event.addListener(marker, 'mouseover', function() {
@@ -43,18 +45,12 @@ function villageCreationOnClick(map){
   });
 }
 
-function createStarterVillage(map){
-  var map = map;
-  placeMarker(-29.31, 27.48, map, "Maseru");
-  villageCreationOnClick(map);
-}
-
 function placeMarker(latitude, longitude, map, title) {
   var marker = new google.maps.Marker({
   position: new google.maps.LatLng(latitude, longitude),
   map: map
   });
-  villageHoverGetsInfo(map, marker);
+  villageHoverGetsInfo(map, marker, title);
 }
 
 function initialize() {
@@ -68,7 +64,6 @@ function initialize() {
 
   var map = new google.maps.Map(document.getElementById('map-canvas'),
       mapOptions);
-  createStarterVillage(map);
   setVillages(map);
 }
 
