@@ -1,10 +1,10 @@
 ChimeforChange::Application.routes.draw do
 get "villages/all" => "villages#all"
 
-resources :villages
-resources :demographics do
-  resources :comments
+resources :villages do
+  #resouces :comments
 end
+
 resources :directions do
   resources :comments
 end

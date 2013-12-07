@@ -8,6 +8,7 @@ class VillagesController < ApplicationController
   end
 
   def show
+    @village = Village.find(params[:id])
   end
 
   def create
@@ -21,6 +22,11 @@ class VillagesController < ApplicationController
     @name = params[:name]
     @latitude = params[:latitude]
     @longitude = params[:longitude]
+  end
+
+  def update
+    @population = params[:population]
+    @note = params[:note]
   end
 
   private

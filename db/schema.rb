@@ -39,14 +39,6 @@ ActiveRecord::Schema.define(version: 20131207171118) do
 
   add_index "comments", ["commentable_id", "commentable_type"], name: "index_comments_on_commentable_id_and_commentable_type"
 
-  create_table "demographics", force: true do |t|
-    t.integer  "village_id"
-    t.integer  "population"
-    t.text     "notes"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "directions", force: true do |t|
     t.integer  "start_village_id"
     t.integer  "end_village_id"
@@ -59,6 +51,8 @@ ActiveRecord::Schema.define(version: 20131207171118) do
     t.string   "name"
     t.float    "latitude"
     t.float    "longitude"
+    t.integer  "population"
+    t.text     "note"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
