@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20131207171118) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "actions", force: true do |t|
     t.text     "description"
     t.integer  "direction_id"
@@ -37,7 +40,7 @@ ActiveRecord::Schema.define(version: 20131207171118) do
     t.datetime "updated_at"
   end
 
-  add_index "comments", ["commentable_id", "commentable_type"], name: "index_comments_on_commentable_id_and_commentable_type"
+  add_index "comments", ["commentable_id", "commentable_type"], name: "index_comments_on_commentable_id_and_commentable_type", using: :btree
 
   create_table "demographics", force: true do |t|
     t.integer  "village_id"
