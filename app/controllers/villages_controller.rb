@@ -6,7 +6,7 @@ class VillagesController < ApplicationController
   end
 
   def create
-    @village = Village.new(params[:village])
+    @village = Village.new(village_params)
     @village.save
     redirect_to villages_path
   end
@@ -15,5 +15,11 @@ class VillagesController < ApplicationController
     @village = Village.new
     @latitude = params[:latitude]
     @longitude = params[:longitude]
+  end
+
+  private
+
+  def village_params
+    params.require(:village).permit(:name, :longitude, :latitude)
   end
 end

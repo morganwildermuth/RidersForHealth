@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131207052527) do
+ActiveRecord::Schema.define(version: 20131207171118) do
+
+  create_table "actions", force: true do |t|
+    t.text     "description"
+    t.integer  "direction_id"
+    t.integer  "checkpoint_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "checkpoints", force: true do |t|
     t.string   "name"
@@ -21,10 +29,28 @@ ActiveRecord::Schema.define(version: 20131207052527) do
     t.datetime "updated_at"
   end
 
+  create_table "comments", force: true do |t|
+    t.string   "content"
+    t.integer  "commentable_id"
+    t.string   "commentable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "comments", ["commentable_id", "commentable_type"], name: "index_comments_on_commentable_id_and_commentable_type"
+
   create_table "demographics", force: true do |t|
     t.integer  "village_id"
     t.integer  "population"
     t.text     "notes"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "directions", force: true do |t|
+    t.integer  "start_village_id"
+    t.integer  "end_village_id"
+    t.text     "order_array"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
