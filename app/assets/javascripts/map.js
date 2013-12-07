@@ -1,3 +1,21 @@
+function setVillages(map) {
+  $.get("villages/all")
+  .done(function(data){
+    createDatabaseVillages(data, map);
+  }).fail(function(){
+    console.log('fail')
+  })
+}
+
+function createDatabaseVillages(villages, map){
+  for (i in villages) {
+    var name = villages[i].name;
+    var latitude = villages[i].latitude;
+    var longitude = villages[i].longitude;
+    placeMarker(latitude, longitude, map, name);
+  }
+}
+
 function villageHoverGetsInfo(map, marker){
   var latitude = marker.position.pb.toString();
   var longitude = marker.position.qb.toString();
@@ -51,6 +69,7 @@ function initialize() {
   var map = new google.maps.Map(document.getElementById('map-canvas'),
       mapOptions);
   createStarterVillage(map);
+  setVillages(map);
 }
 
 function loadScript() {

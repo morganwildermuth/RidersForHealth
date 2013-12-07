@@ -2,6 +2,11 @@ class VillagesController < ApplicationController
   def index
   end
 
+  def all
+    @villages = Village.all
+    render json: @villages
+  end
+
   def show
   end
 
