@@ -1,6 +1,8 @@
 function villageHoverGetsInfo(map, marker){
+  var latitude = marker.position.pb.toString();
+  var longitude = marker.position.qb.toString();
   var infoWindow = new google.maps.InfoWindow({
-    content: "Test" + " " + "<a href=/villages/new>Save Village</a>"
+    content: "<a href=villages/new?latitude=" + latitude + "&longitude=" + longitude + ">Edit</a>"
   });
 
   google.maps.event.addListener(marker, 'mouseover', function() {
