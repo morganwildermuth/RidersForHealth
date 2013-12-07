@@ -1,15 +1,17 @@
 function villageHoverGetsInfo(map, marker){
-  var marker = marker;
-  var infowindow = new google.maps.InfoWindow({
-    content: "Test"
+  var infoWindow = new google.maps.InfoWindow({
+    content: "Test" + " " + "<a href=/villages>Edit</a>"
   });
 
   google.maps.event.addListener(marker, 'mouseover', function() {
-    infowindow.open(map, marker);
+    infoWindow.open(map, marker);
   });
 
   google.maps.event.addListener(marker, 'mouseout', function() {
-    infowindow.close(map, marker);
+    var closeWindow = function(){
+      infoWindow.close(map, marker)
+    };
+    window.setTimeout(closeWindow, 1000);
   });
 }
 
@@ -33,6 +35,7 @@ function placeMarker(latitude, longitude, map, title) {
   map: map
   });
   villageHoverGetsInfo(map, marker);
+  villageClickRedirects(map, marker);
 }
 
 function initialize() {
