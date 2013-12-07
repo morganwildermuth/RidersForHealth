@@ -1,7 +1,7 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: db/production
+  database: CCdevelopment
   pool: 5
   timeout: 5000
 
@@ -11,13 +11,13 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: db/production
+  database: CCtest
   pool: 5
   timeout: 5000
 
 production:
   adapter: postgresql
   encoding: unicode
-  database: db/production
+  database: CCproduction
   pool: 5
   timeout: 5000
