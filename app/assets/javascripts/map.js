@@ -18,7 +18,7 @@ function villageHoverGetsInfo(map, marker){
 function villageCreationOnClick(map){
   google.maps.event.addListener(map, 'click', function(event) {
     var location = event.latLng;
-    var title = "Click Me to Name Me";
+    var title = "Edit Me to Name Me";
     placeMarker(location.pb, location.qb, map, title);
   });
 }
