@@ -1,3 +1,12 @@
+function createVillages(map){
+  var map = map;
+  var marker = new google.maps.Marker({
+    position: new google.maps.LatLng(30.1, 26.2900),
+    map: map,
+    title:"Maseru"
+  });
+}
+
 function initialize() {
   var mapOptions = {
     zoom: 8,
@@ -9,6 +18,7 @@ function initialize() {
 
   var map = new google.maps.Map(document.getElementById('map-canvas'),
       mapOptions);
+  createVillages(map);
 }
 
 function loadScript() {
