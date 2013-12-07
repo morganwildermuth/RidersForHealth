@@ -19,8 +19,9 @@ function createDatabaseVillages(villages, map){
 function villageHoverGetsInfo(map, marker, title){
   var latitude = marker.position.pb.toString();
   var longitude = marker.position.qb.toString();
+  var name = title.replace(/\s/g, '')
   var contentString = "<p>" + title + "</p>" +
-  "<p><a href=villages/new?name=" + title + "&latitude=" + latitude + "&longitude=" + longitude + ">Save/Edit Village</a></p>"
+  "<p><a href=villages/new?name=" + name + "&latitude=" + latitude + "&longitude=" + longitude + ">Save/Edit Village</a></p>"
   var infoWindow = new google.maps.InfoWindow({
     content: contentString
   });
