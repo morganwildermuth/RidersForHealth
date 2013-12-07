@@ -8,11 +8,12 @@ class DirectionsController < ApplicationController
     end_vil_id = Village.where("name = ?", direction_params[:end_village_id]).first.id
     @direction = Direction.new({start_village_id: st_vil_id, end_village_id: end_vil_id, description: direction_params[:description]})
     if @direction.save
-      redirect_to direction_path
+      redirect_to villages_path
     end
   end
 
   def show
+    @direction = Direction.find(params[:id])
   end
 
   private
