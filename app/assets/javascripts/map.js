@@ -21,7 +21,7 @@ function villageHoverGetsInfo(map, marker, title){
   var longitude = marker.position.qb.toString();
   var name = title.replace(/\s/g, '')
   var contentString = "<p>" + title + "</p>" +
-  "<p><a href=villages/new?name=" + name + "&latitude=" + latitude + "&longitude=" + longitude + ">Save/Edit Village</a></p>"
+  "<p><a href=villages/new?name=" + name + "&latitude=" + latitude + "&longitude=" + longitude + ">Details</a></p>"
   var infoWindow = new google.maps.InfoWindow({
     content: contentString
   });
@@ -41,7 +41,7 @@ function villageHoverGetsInfo(map, marker, title){
 function villageCreationOnClick(map){
   google.maps.event.addListener(map, 'click', function(event) {
     var location = event.latLng;
-    var title = "Edit Me to Name Me";
+    var title = "Go to Details to Save";
     placeMarker(location.pb, location.qb, map, title);
   });
 }
