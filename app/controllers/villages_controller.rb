@@ -18,6 +18,7 @@ class VillagesController < ApplicationController
 
   def new
     @village = Village.new
+    @name = params[:name]
     @latitude = params[:latitude]
     @longitude = params[:longitude]
   end
