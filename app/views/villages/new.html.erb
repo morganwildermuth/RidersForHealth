@@ -1,0 +1,18 @@
+<%= form_for @village do |f| %>
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.label :latitude %>
+    <%= f.text_field :latitude, value: @latitude %>
+  </p>
+
+  <p>
+    <%= f.label :longitude %>
+    <%= f.text_field :longitude, value: @longitude %>
+  </p>
+
+  <%= f.submit "Save" %>
+<% end %>
