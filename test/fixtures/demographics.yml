@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  village_id: 1
+  population: 1
+  notes: MyText
+
+two:
+  village_id: 1
+  population: 1
+  notes: MyText

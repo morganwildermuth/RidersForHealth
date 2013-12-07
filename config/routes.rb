@@ -1,4 +1,23 @@
 ChimeforChange::Application.routes.draw do
+get "villages/all" => "villages#all"
+
+resources :villages
+resources :demographics do
+  resources :comments
+end
+resources :directions do
+  resources :comments
+end
+resources :checkpoints do
+  resources :comments
+end
+resources :actions do
+  resources :comments
+end
+resources :comments do
+  resources :comments # subomments
+end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
