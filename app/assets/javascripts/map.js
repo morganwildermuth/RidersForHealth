@@ -1,3 +1,13 @@
+// function villageHoverGetsInfo(map){
+//   var infowindow = new google.maps.InfoWindow({
+//     content: "Test"
+//   });
+
+//   google.maps.event.addListener(marker, 'mouseover', function() {
+//     infowindow.open(map, marker);
+//   });
+// }
+
 function villageCreationOnClick(map){
   google.maps.event.addListener(map, 'click', function(event) {
     var location = event.latLng;
@@ -10,6 +20,7 @@ function createStarterVillage(map){
   var map = map;
   placeMarker(-29.31, 27.48, map, "Maseru");
   villageCreationOnClick(map);
+  villageHoverGetsInfo(map);
 }
 
 function placeMarker(latitude, longitude, map, title) {
