@@ -1,9 +1,21 @@
-function createVillages(map){
+function villageCreationOnClick(map){
+  google.maps.event.addListener(map, 'click', function(event) {
+    var location = event.latLng;
+    var title = "Click Me to Name Me";
+    placeMarker(location.pb, location.qb, map, title);
+  });
+}
+
+function createStarterVillage(map){
   var map = map;
+  placeMarker(-29.31, 27.48, map, "Maseru");
+  villageCreationOnClick(map);
+}
+
+function placeMarker(latitude, longitude, map, title) {
   var marker = new google.maps.Marker({
-    position: new google.maps.LatLng(-29.31, 27.48),
-    map: map,
-    title:"Maseru"
+  position: new google.maps.LatLng(latitude, longitude),
+  map: map
   });
 }
 
@@ -18,7 +30,7 @@ function initialize() {
 
   var map = new google.maps.Map(document.getElementById('map-canvas'),
       mapOptions);
-  createVillages(map);
+  createStarterVillage(map);
 }
 
 function loadScript() {
