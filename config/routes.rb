@@ -1,10 +1,10 @@
 ChimeforChange::Application.routes.draw do
 get "villages/all" => "villages#all"
 
-resources :villages
-resources :demographics do
-  resources :comments
+resources :villages do
+  #resouces :comments
 end
+
 resources :directions do
   resources :comments
 end
@@ -17,7 +17,6 @@ end
 resources :comments do
   resources :comments # subomments
 end
-
 root to: 'villages#index'
 
   # The priority is based upon order of creation: first created -> highest priority.

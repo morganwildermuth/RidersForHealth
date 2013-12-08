@@ -9,18 +9,21 @@ function setVillages(map) {
 
 function createDatabaseVillages(villages, map){
   for (i in villages) {
+    var id = villages[i].id;
     var name = villages[i].name;
     var latitude = villages[i].latitude;
     var longitude = villages[i].longitude;
-    placeMarker(latitude, longitude, map, name);
+    placeMarker(latitude, longitude, map, name, id);
   }
 }
 
-function villageHoverGetsInfo(map, marker, title){
+function villageHoverGetsInfo(map, marker, title, id){
   var latitude = marker.position.pb.toString();
   var longitude = marker.position.qb.toString();
+  var id = id.toString();
+  var name = title.replace(/\s/g, '')
   var contentString = "<p>" + title + "</p>" +
-  "<p><a href=villages/new?latitude=" + latitude + "&longitude=" + longitude + ">Save/Edit Village</a></p>"
+  "<p><a href=villages/new?name=" + name + "&latitude=" + latitude + "&longitude=" + longitude + "&id=" + id + ">Details</a></p>"
   var infoWindow = new google.maps.InfoWindow({
     content: contentString
   });
@@ -40,17 +43,18 @@ function villageHoverGetsInfo(map, marker, title){
 function villageCreationOnClick(map){
   google.maps.event.addListener(map, 'click', function(event) {
     var location = event.latLng;
-    var title = "Edit Me to Name Me";
-    placeMarker(location.pb, location.qb, map, title);
+    var title = "Click Details to Save";
+    var id = "new"
+    placeMarker(location.pb, location.qb, map, title, id);
   });
 }
 
-function placeMarker(latitude, longitude, map, title) {
+function placeMarker(latitude, longitude, map, title, id) {
   var marker = new google.maps.Marker({
   position: new google.maps.LatLng(latitude, longitude),
   map: map
   });
-  villageHoverGetsInfo(map, marker, title);
+  villageHoverGetsInfo(map, marker, title, id);
 }
 
 function initialize() {

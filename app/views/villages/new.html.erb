@@ -1,18 +1,24 @@
-<%= form_for @village do |f| %>
-  <p>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </p>
+<% if @id == "new" %>
+  <%= form_for @village do |f| %>
+    <p><%= f.hidden_field :id, value: @id %></p>
 
-  <p>
-    <%= f.label :latitude %>
-    <%= f.text_field :latitude, value: @latitude %>
-  </p>
+    <p>
+      <%= f.label :name %>
+      <%= f.text_field :name, value: @name %>
+    </p>
 
-  <p>
-    <%= f.label :longitude %>
-    <%= f.text_field :longitude, value: @longitude %>
-  </p>
+    <p>
+      <%= f.label :latitude %>
+      <%= f.text_field :latitude, value: @latitude %>
+    </p>
 
-  <%= f.submit "Save" %>
-<% end %>
+    <p>
+      <%= f.label :longitude %>
+      <%= f.text_field :longitude, value: @longitude %>
+    </p>
+
+    <%= f.submit "Save" %>
+  <% end %>
+<% else %>
+  <%= render partial: "demog_form" %> 
+<%end%>

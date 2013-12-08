@@ -1,5 +1,5 @@
 class Comment < ActiveRecord::Base
-    belongs_to :demographic
+    belongs_to :village
     belongs_to :direction
     belongs_to :checkpoint
     belongs_to :action
