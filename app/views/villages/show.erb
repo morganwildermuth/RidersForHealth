@@ -1,0 +1,50 @@
+<h1>
+    <%= @village.name %>
+</h1>
+<h2>(Lat: <%= @village.latitude %>, Long: <%= @village.longitude %>)</h2>
+
+
+<div class="container"
+    <div class="row">
+        <div style="background-color: #F60; border-color: #46b8da;">
+            <p style="margin-top: 8px"><b>Resident Demographics:</b><p>
+        </div>
+    <div>
+        <% if @village.population.present? %>
+        Population:  <%= @village.population %>
+        <br>
+        As of last update <%= time_ago_in_words(updated_at) %> ago.
+        <br>
+        Critical notes regarding health status and needs of residents:
+        <ul><% @village.note %></ul>
+        <%= link_to "Edit and expand demographic info", @village, method: :edit  %>
+    </div>
+<% else %>
+<br>
+    <div>
+        <%= form_for @village do |f| %>
+          <p>
+            <%= f.label :population %>
+            <%= f.text_field :population %>
+          </p>
+
+          <p>
+            <%= f.label :notes %>
+            <%= f.text_area :note %>
+          </p>
+
+          <%= f.submit "Add Demographics" %>
+        <% end %>
+    </div>
+<% end %>
+    </div>
+
+
+<div class="row">
+    <div style="background-color: #F60; border-color: #46b8da;">
+        <p style="margin-top: 8px"><b>Available Routes from <%= @village.name %>:</b><p>
+    </div>
+
+
+</div>
+
