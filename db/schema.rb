@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131207171118) do
+ActiveRecord::Schema.define(version: 20131207182805) do
 
   create_table "actions", force: true do |t|
     t.text     "description"
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 20131207171118) do
     t.text     "order_array"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "description"
   end
 
   create_table "villages", force: true do |t|
