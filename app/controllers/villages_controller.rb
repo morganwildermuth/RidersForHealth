@@ -22,11 +22,15 @@ class VillagesController < ApplicationController
   end
 
   def new
-    @village = Village.new
-    @name = params[:name]
-    @latitude = params[:latitude]
-    @longitude = params[:longitude]
-    @id = params[:id]
+    if params[:id] == "new"
+      @village = Village.new
+      @name = params[:name]
+      @latitude = params[:latitude]
+      @longitude = params[:longitude]
+      @id = params[:id]
+   else 
+    @village = Village.find(params[:id].to_i)
+   end
   end
 
   def update
