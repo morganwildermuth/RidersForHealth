@@ -18,8 +18,8 @@ function createDatabaseVillages(villages, map){
 }
 
 function villageHoverGetsInfo(map, marker, title, id){
-  var latitude = marker.position.pb.toString();
-  var longitude = marker.position.qb.toString();
+  var latitude = marker.position.nb.toString();
+  var longitude = marker.position.ob.toString();
   var id = id.toString();
   var name = title.replace(/\s/g, '')
   var contentString = "<p>" + title + "</p>" +
@@ -44,8 +44,8 @@ function villageCreationOnClick(map){
   google.maps.event.addListener(map, 'click', function(event) {
     var location = event.latLng;
     var title = "Click Details to Save";
-    var id = "new"
-    placeMarker(location.pb, location.qb, map, title, id);
+    var id = "new";
+    placeMarker(location.nb, location.ob, map, title, id);
   });
 }
 
